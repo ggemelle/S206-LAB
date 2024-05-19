@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "8e25e035-a5d8-41c5-bb72-1632a858b122",
+		"name": "Aula 1 - Pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34108695"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Localiza pokemon com sucesso",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"cute-charm\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/jigglypuff",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"jigglypuff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Não Localiza pokemon (Não existe)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/huahua",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								"huahua"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint falho localiza pokemon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemo/jigglypuff",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemo",
+								"jigglypuff"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
